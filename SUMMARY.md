@@ -1,4 +1,5 @@
 # Table of contents
 
-* [Page](README.md)
-  * [Page 1](page/page-1.md)
+* [Introduccion](README.md)
+  * [1. Introduccion](introduccion/1.-introduccion.md)
+  * [Diagrama de la base de datos](introduccion/diagrama-de-la-base-de-datos.md)
