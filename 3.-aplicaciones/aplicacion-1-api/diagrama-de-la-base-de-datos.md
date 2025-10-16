@@ -1,6 +1,6 @@
-# Page 1
+# Diagrama de la base de datos
 
-gffhdsfsdfsd aaaaaaaaa
+
 
 ```mermaid
 erDiagram
