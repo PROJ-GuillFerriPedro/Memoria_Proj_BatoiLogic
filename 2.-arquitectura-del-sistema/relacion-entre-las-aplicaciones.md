@@ -1,0 +1,2 @@
+# Relación entre las aplicaciones
+
