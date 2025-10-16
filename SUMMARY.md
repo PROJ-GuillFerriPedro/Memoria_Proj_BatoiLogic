@@ -43,3 +43,13 @@
   * [Integracion](3.-aplicaciones/3.5-aplicacion-5-odoo/integracion.md)
   * [Pruebas realizadas](3.-aplicaciones/3.5-aplicacion-5-odoo/pruebas-realizadas.md)
   * [Conclusiones parciales](3.-aplicaciones/3.5-aplicacion-5-odoo/conclusiones-parciales.md)
+
+## 4. Integración del sistema
+
+* [Cómo se comunican entre sí las aplicaciones](4.-integracion-del-sistema/como-se-comunican-entre-si-las-aplicaciones.md)
+* [Protocolos y formatos de intercambio de datos](4.-integracion-del-sistema/protocolos-y-formatos-de-intercambio-de-datos.md)
+* [Problemas encontrados y soluciones](4.-integracion-del-sistema/problemas-encontrados-y-soluciones.md)
+
+## 5. Pruebas globales
+
+* [Page 1](5.-pruebas-globales/page-1.md)
