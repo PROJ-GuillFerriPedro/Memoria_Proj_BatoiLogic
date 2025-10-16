@@ -1,4 +1,4 @@
-# Descripción
+# Introduccion
 
 Link: [https://proyecto-dam.gitbook.io/proyecto-dam-docs](https://proyecto-dam.gitbook.io/proyecto-dam-docs)
 
@@ -12,4 +12,5 @@ Sistema de Información BatoiLogic
 
 
 
-Este proyecto se hace con el objetivo de mejorar el funcionamiento de la empresa ficticia llamada BatoiLOGIC
+
+

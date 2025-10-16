@@ -1,7 +1,16 @@
 # Table of contents
 
-* [Introduccion](README.md)
-  * [1. Introduccion](introduccion/1.-introduccion.md)
+## 1. Introduccion
+
+* [Descripción](README.md)
+* [Objetivos globales](1.-introduccion/objetivos-globales.md)
+* [Justificación y alcance](1.-introduccion/justificacion-y-alcance.md)
+* [Recursos y valoración económica](1.-introduccion/recursos-y-valoracion-economica.md)
+* [Planificación](1.-introduccion/planificacion.md)
+
+***
+
+* [Introduccion](<README (1).md>)
   * [3. Aplicaciones](introduccion/3.-aplicaciones/README.md)
     * [Aplicación 1: Api](introduccion/3.-aplicaciones/aplicacion-1-api/README.md)
       * [Diseño](introduccion/3.-aplicaciones/aplicacion-1-api/diseno.md)
