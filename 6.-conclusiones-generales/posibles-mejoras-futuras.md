@@ -1,0 +1,2 @@
+# Posibles mejoras futuras
+

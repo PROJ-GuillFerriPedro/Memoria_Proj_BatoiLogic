@@ -52,4 +52,18 @@
 
 ## 5. Pruebas globales
 
-* [Page 1](5.-pruebas-globales/page-1.md)
+* [Estrategia de pruebas de todo el sistema](5.-pruebas-globales/estrategia-de-pruebas-de-todo-el-sistema.md)
+* [Escenarios de integración](5.-pruebas-globales/escenarios-de-integracion.md)
+* [Resultados y evidencias](5.-pruebas-globales/resultados-y-evidencias.md)
+
+## 6. Conclusiones generales
+
+* [Resumen de logros](6.-conclusiones-generales/resumen-de-logros.md)
+* [Dificultades y cómo se resolvieron](6.-conclusiones-generales/dificultades-y-como-se-resolvieron.md)
+* [Posibles mejoras futuras](6.-conclusiones-generales/posibles-mejoras-futuras.md)
+
+## 7. Anexos
+
+* [Manual de usuario](7.-anexos/manual-de-usuario.md)
+* [Glosario de términos técnicos](7.-anexos/glosario-de-terminos-tecnicos.md)
+* [Referencias / bibliografía](7.-anexos/referencias-bibliografia.md)
