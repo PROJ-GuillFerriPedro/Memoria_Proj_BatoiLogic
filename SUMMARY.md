@@ -67,3 +67,7 @@
 * [Manual de usuario](7.-anexos/manual-de-usuario.md)
 * [Glosario de términos técnicos](7.-anexos/glosario-de-terminos-tecnicos.md)
 * [Referencias / bibliografía](7.-anexos/referencias-bibliografia.md)
+
+## 8. Gestión del proyecto: seguimiento por sprints
+
+* [8.1 Sprint 1 (Fechas: 15/09/2025 – 12/10/2025)](8.-gestion-del-proyecto-seguimiento-por-sprints/8.1-sprint-1-fechas-15-09-2025-12-10-2025.md)
