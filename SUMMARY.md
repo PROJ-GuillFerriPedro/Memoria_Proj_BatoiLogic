@@ -70,4 +70,9 @@
 
 ## 8. Gestión del proyecto: seguimiento por sprints
 
-* [8.1 Sprint 1 (Fechas: 15/09/2025 – 12/10/2025)](8.-gestion-del-proyecto-seguimiento-por-sprints/8.1-sprint-1-fechas-15-09-2025-12-10-2025.md)
+* [8.1 Sprint 1 (Fechas: 15/09/2025 – 12/10/2025)](8.-gestion-del-proyecto-seguimiento-por-sprints/8.1-sprint-1-fechas-15-09-2025-12-10-2025/README.md)
+  * [Objetivos del sprint](8.-gestion-del-proyecto-seguimiento-por-sprints/8.1-sprint-1-fechas-15-09-2025-12-10-2025/objetivos-del-sprint.md)
+  * [Problemas encontrados](8.-gestion-del-proyecto-seguimiento-por-sprints/8.1-sprint-1-fechas-15-09-2025-12-10-2025/problemas-encontrados.md)
+* [8.2 Sprint 2 (Fechas: 15/09/2025 – 12/10/2025)](8.-gestion-del-proyecto-seguimiento-por-sprints/8.2-sprint-2-fechas-15-09-2025-12-10-2025/README.md)
+  * [Objetivos del sprint](8.-gestion-del-proyecto-seguimiento-por-sprints/8.2-sprint-2-fechas-15-09-2025-12-10-2025/objetivos-del-sprint.md)
+  * [Problemas encontrados](8.-gestion-del-proyecto-seguimiento-por-sprints/8.2-sprint-2-fechas-15-09-2025-12-10-2025/problemas-encontrados.md)
