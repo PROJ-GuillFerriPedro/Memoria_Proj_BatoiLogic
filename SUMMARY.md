@@ -12,6 +12,10 @@
 
 * [Visión general del sistema](2.-arquitectura-del-sistema/vision-general-del-sistema/README.md)
   * [Analisis, relacion de ODTS y grupos de intere](2.-arquitectura-del-sistema/vision-general-del-sistema/analisis-relacion-de-odts-y-grupos-de-intere.md)
+  * [Concepto de la digitalizacion](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/README.md)
+    * [Impacto en los entornos IT y OT](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/impacto-en-los-entornos-it-y-ot.md)
+    * [Repercusiones de la falta de digitalización](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/repercusiones-de-la-falta-de-digitalizacion.md)
+    * [Tecnologías Habilitadoras Digitales más adecuadas para la situacion.](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/tecnologias-habilitadoras-digitales-mas-adecuadas-para-la-situacion..md)
 * [Tecnologías empleadas](2.-arquitectura-del-sistema/tecnologias-empleadas.md)
 * [Diagrama de la arquitectura](2.-arquitectura-del-sistema/diagrama-de-la-arquitectura.md)
 * [Relación entre las aplicaciones](2.-arquitectura-del-sistema/relacion-entre-las-aplicaciones.md)
