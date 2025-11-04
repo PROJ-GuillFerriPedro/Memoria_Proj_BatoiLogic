@@ -10,7 +10,8 @@
 
 ## 2. Arquitectura del sistema
 
-* [Visión general del sistema](2.-arquitectura-del-sistema/vision-general-del-sistema.md)
+* [Visión general del sistema](2.-arquitectura-del-sistema/vision-general-del-sistema/README.md)
+  * [Analisis, relacion de ODTS y grupos de intere](2.-arquitectura-del-sistema/vision-general-del-sistema/analisis-relacion-de-odts-y-grupos-de-intere.md)
 * [Tecnologías empleadas](2.-arquitectura-del-sistema/tecnologias-empleadas.md)
 * [Diagrama de la arquitectura](2.-arquitectura-del-sistema/diagrama-de-la-arquitectura.md)
 * [Relación entre las aplicaciones](2.-arquitectura-del-sistema/relacion-entre-las-aplicaciones.md)
