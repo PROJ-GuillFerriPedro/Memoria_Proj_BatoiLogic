@@ -28,6 +28,17 @@
   * [Pruebas realizadas](3.-aplicaciones/3.1-aplicacion-1-api/pruebas-realizadas.md)
   * [Diagrama de la base de datos](3.-aplicaciones/3.1-aplicacion-1-api/diagrama-de-la-base-de-datos.md)
   * [Conclusiones parciales](3.-aplicaciones/3.1-aplicacion-1-api/conclusiones-parciales.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: true
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: proyecto-dam-api
+    ```
 * [3.2 Aplicación 2: App Repartidores](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/README.md)
   * [Diseño](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/diseno.md)
   * [Integracion](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/integracion.md)
