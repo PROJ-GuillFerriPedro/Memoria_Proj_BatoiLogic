@@ -11,7 +11,7 @@
 ## 2. Arquitectura del sistema
 
 * [Visión general del sistema](2.-arquitectura-del-sistema/vision-general-del-sistema/README.md)
-  * [Analisis, relacion de ODTS y grupos de intere](2.-arquitectura-del-sistema/vision-general-del-sistema/analisis-relacion-de-odts-y-grupos-de-intere.md)
+  * [Analisis, relacion de ODTS y grupos de interes](2.-arquitectura-del-sistema/vision-general-del-sistema/analisis-relacion-de-odts-y-grupos-de-interes.md)
   * [Concepto de la digitalizacion](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/README.md)
     * [Impacto en los entornos IT y OT](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/impacto-en-los-entornos-it-y-ot.md)
     * [Repercusiones de la falta de digitalización](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/repercusiones-de-la-falta-de-digitalizacion.md)
