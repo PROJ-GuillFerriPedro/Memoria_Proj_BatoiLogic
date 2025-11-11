@@ -7,6 +7,9 @@
 * [Justificación y alcance](1.-introduccion/justificacion-y-alcance.md)
 * [Recursos y valoración económica](1.-introduccion/recursos-y-valoracion-economica.md)
 * [Planificación](1.-introduccion/planificacion.md)
+* [Planificación laboral](1.-introduccion/planificacion-laboral/README.md)
+  * [Identificación de Riesgos laborales](1.-introduccion/planificacion-laboral/identificacion-de-riesgos-laborales.md)
+  * [Page 1](1.-introduccion/planificacion-laboral/page-1.md)
 
 ## 2. Arquitectura del sistema
 
