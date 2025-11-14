@@ -9,7 +9,8 @@
 * [Planificación](1.-introduccion/planificacion.md)
 * [Planificación laboral](1.-introduccion/planificacion-laboral/README.md)
   * [Identificación de Riesgos laborales](1.-introduccion/planificacion-laboral/identificacion-de-riesgos-laborales.md)
-  * [Page 1](1.-introduccion/planificacion-laboral/page-1.md)
+  * [Identificación de incidentes de seguridad en sistemas informáticos](1.-introduccion/planificacion-laboral/identificacion-de-incidentes-de-seguridad-en-sistemas-informaticos.md)
+  * [Asingacion de roles](1.-introduccion/planificacion-laboral/asingacion-de-roles.md)
 
 ## 2. Arquitectura del sistema
 
