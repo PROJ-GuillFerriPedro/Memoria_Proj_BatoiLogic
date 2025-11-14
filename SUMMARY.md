@@ -11,15 +11,16 @@
   * [Identificación de Riesgos laborales](1.-introduccion/planificacion-laboral/identificacion-de-riesgos-laborales.md)
   * [Identificación de incidentes de seguridad en sistemas informáticos](1.-introduccion/planificacion-laboral/identificacion-de-incidentes-de-seguridad-en-sistemas-informaticos.md)
   * [Asingacion de roles](1.-introduccion/planificacion-laboral/asingacion-de-roles.md)
+* [Planificación de la digitalizacion](1.-introduccion/planificacion-de-la-digitalizacion/README.md)
+  * [Concepto](1.-introduccion/planificacion-de-la-digitalizacion/concepto.md)
+  * [Impacto en los entornos IT y OT](1.-introduccion/planificacion-de-la-digitalizacion/impacto-en-los-entornos-it-y-ot.md)
+  * [Repercusiones de la falta de digitalización](1.-introduccion/planificacion-de-la-digitalizacion/repercusiones-de-la-falta-de-digitalizacion.md)
+  * [Tecnologías Habilitadoras Digitales más adecuadas para la situacion.](1.-introduccion/planificacion-de-la-digitalizacion/tecnologias-habilitadoras-digitales-mas-adecuadas-para-la-situacion..md)
 
 ## 2. Arquitectura del sistema
 
 * [Visión general del sistema](2.-arquitectura-del-sistema/vision-general-del-sistema/README.md)
   * [Analisis, relacion de ODTS y grupos de interes](2.-arquitectura-del-sistema/vision-general-del-sistema/analisis-relacion-de-odts-y-grupos-de-interes.md)
-  * [Concepto de la digitalizacion](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/README.md)
-    * [Impacto en los entornos IT y OT](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/impacto-en-los-entornos-it-y-ot.md)
-    * [Repercusiones de la falta de digitalización](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/repercusiones-de-la-falta-de-digitalizacion.md)
-    * [Tecnologías Habilitadoras Digitales más adecuadas para la situacion.](2.-arquitectura-del-sistema/vision-general-del-sistema/concepto-de-la-digitalizacion/tecnologias-habilitadoras-digitales-mas-adecuadas-para-la-situacion..md)
 * [Tecnologías empleadas](2.-arquitectura-del-sistema/tecnologias-empleadas.md)
 * [Diagrama de la arquitectura](2.-arquitectura-del-sistema/diagrama-de-la-arquitectura.md)
 * [Relación entre las aplicaciones](2.-arquitectura-del-sistema/relacion-entre-las-aplicaciones.md)
