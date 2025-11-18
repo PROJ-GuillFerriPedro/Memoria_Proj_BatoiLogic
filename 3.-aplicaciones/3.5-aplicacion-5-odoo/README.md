@@ -40,7 +40,7 @@ Implementar Odoo en un servidor Ubuntu pueden traer varias ventajas en torno a l
 
 * Odoo en Ubuntu puede ejecutarse tanto en la nube como en servidores locales, adaptándose a la infraestructura que mejor convenga a la empresa.​
 * Permite implementar reglas automatizadas, paneles de control personalizados y reportes en tiempo real, facilitando la toma de decisiones.​
-* Puedes correrlo en un servicio como docker para facilitar la instalacion
+* Puedes correrlo en un servicio como docker para facilitar la instalación
 
 ## Objetivos
 
