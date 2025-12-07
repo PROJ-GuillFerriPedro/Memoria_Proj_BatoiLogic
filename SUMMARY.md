@@ -18,6 +18,9 @@
   * [Tecnologías Habilitadoras Digitales más adecuadas para la situacion.](1.-introduccion/plan-de-digitalizacion/tecnologias-habilitadoras-digitales-mas-adecuadas-para-la-situacion..md)
 * [Plan de sostenibilidad](1.-introduccion/plan-de-sostenibilidad/README.md)
   * [Analisis, relacion de ODTS y grupos de interes](1.-introduccion/plan-de-sostenibilidad/analisis-relacion-de-odts-y-grupos-de-interes.md)
+  * [Métricas de sostenibilidad](1.-introduccion/plan-de-sostenibilidad/metricas-de-sostenibilidad.md)
+  * [Matriz ASG](1.-introduccion/plan-de-sostenibilidad/matriz-asg.md)
+  * [Informe de sostenibilidad](1.-introduccion/plan-de-sostenibilidad/informe-de-sostenibilidad.md)
 
 ## 2. Arquitectura del sistema
 
