@@ -51,7 +51,8 @@
       ```
 * [3.2 Aplicación 2: App Repartidores](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/README.md)
   * [Diseño](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/diseno.md)
-  * [Integracion](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/integracion.md)
+  * [Integracion](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/integracion/README.md)
+    * [Funcionalidades](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/integracion/funcionalidades.md)
   * [Pruebas realizadas](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/pruebas-realizadas.md)
   * [Conclusiones parciales](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/conclusiones-parciales.md)
 * [3.3 Aplicación 3: App Clientes](3.-aplicaciones/3.3-aplicacion-3-app-clientes/README.md)
