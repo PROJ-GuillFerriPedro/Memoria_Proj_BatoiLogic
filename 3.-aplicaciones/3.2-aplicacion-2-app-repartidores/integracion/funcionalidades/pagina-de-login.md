@@ -1,6 +1,4 @@
-# Funcionalidades
-
-### Pagina de login
+# Pagina de login
 
 En la pantalla de login tenemos varias cosas, de momento se tiene el usuario y contraseña en una variable (lo cual es muy malo para la seguridad).
 
@@ -27,17 +25,3 @@ En los ultimos cambios de esta pantalla se le han añadido varias cosas:
 Luego de eso al darle al boton de login
 
 {% @github-files/github-code-block url="https://github.com/PROJ-GuillFerriPedro/Aplicacion-Android-Repartidors/blob/main/lib/screens/LoginScreen.dart" visible="true" fullWidth="false" %}
-
-### Pantalla de pedidos
-
-En la pantalla de pedidos podemos ver la lista de pedidos, que vendrán ordenados por id y sera un máximo de 3, cada pedido tendrá el nombre del destinatario y la dirección del destinatario.
-
-Lo nuevo agregado es que cuando se pulsa sobre un pedido te lleva a su pantalla
-
-{% @github-files/github-code-block url="https://github.com/PROJ-GuillFerriPedro/Aplicacion-Android-Repartidors/blob/main/lib/screens/PedidosScreen.dart" %}
-
-## Pantalla de ediciones de pedido
-
-En esta pantalla se mostrara informacion del pedido como el numero de telefono, esta pantalla mostrara por defecto la ubicacion en un mapa, y habra un desplegable con el cual se podra seleccionar si se va a entregar y mostrara una firma, si ha ocurrido algun error se podra cancelar el medido en el apartado de cancelar
-
-{% @github-files/github-code-block url="https://github.com/PROJ-GuillFerriPedro/Aplicacion-Android-Repartidors/blob/main/lib/screens/PedidoDetail.dart" %}
