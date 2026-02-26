@@ -1,0 +1,431 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "CloudFormation template para infraestructura con VPC, RDS PostgreSQL y Odoo EC2"
+
+Parameters:
+  OdooInstanceType:
+    Type: String
+    Default: t3.micro
+    Description: Tipo de instancia EC2 para Odoo
+
+  DBInstanceClass:
+    Type: String
+    Default: db.t3.micro
+    Description: Clase de la instancia RDS
+
+  DBName:
+    Type: String
+    Default: postgres
+    Description: Nombre de la base de datos inicial
+    NoEcho: false
+
+  DBUsername:
+    Type: String
+    Default: odoo
+    Description: Usuario maestro de la base de datos
+    NoEcho: false
+
+  DBPassword:
+    Type: String
+    Default: "57gg-kgyy-q3nn"
+    NoEcho: true
+    Description: Contraseña de la base de datos
+    MinLength: 8
+
+Resources:
+  # ========== VPC y Networking ==========
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: ProyectoVPC
+
+  # Subnets Públicas
+  PublicSubnetAZ1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet-AZ1
+
+  PublicSubnetAZ2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet-AZ2
+
+  # Subnets Privadas
+  PrivateSubnetAZ1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.11.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet-AZ1
+
+  PrivateSubnetAZ2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.12.0/24
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet-AZ2
+
+  # Internet Gateway
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: ProyectoIGW
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  # Elastic IPs para NAT Gateways
+  NATGatewayEIPAZ1:
+    Type: AWS::EC2::EIP
+    DependsOn: AttachGateway
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: NAT-EIP-AZ1
+
+  NATGatewayEIPAZ2:
+    Type: AWS::EC2::EIP
+    DependsOn: AttachGateway
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: NAT-EIP-AZ2
+
+  # NAT Gateways
+  NATGatewayAZ1:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt NATGatewayEIPAZ1.AllocationId
+      SubnetId: !Ref PublicSubnetAZ1
+      Tags:
+        - Key: Name
+          Value: NAT-Gateway-AZ1
+
+  NATGatewayAZ2:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt NATGatewayEIPAZ2.AllocationId
+      SubnetId: !Ref PublicSubnetAZ2
+      Tags:
+        - Key: Name
+          Value: NAT-Gateway-AZ2
+
+  # Route Tables
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Public-RT
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetAZ1
+      RouteTableId: !Ref PublicRouteTable
+
+  PublicSubnetRouteTableAssociation2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetAZ2
+      RouteTableId: !Ref PublicRouteTable
+
+  # Route Tables Privadas
+  PrivateRouteTableAZ1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Private-RT-AZ1
+
+  PrivateRouteAZ1:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTableAZ1
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NATGatewayAZ1
+
+  PrivateSubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnetAZ1
+      RouteTableId: !Ref PrivateRouteTableAZ1
+
+  PrivateRouteTableAZ2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Private-RT-AZ2
+
+  PrivateRouteAZ2:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTableAZ2
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NATGatewayAZ2
+
+  PrivateSubnetRouteTableAssociation2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnetAZ2
+      RouteTableId: !Ref PrivateRouteTableAZ2
+
+  # ========== Security Groups ==========
+
+  # ALB security group removed; not required when only deploying Odoo
+
+  # SG para Odoo
+  OdooSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group para Odoo
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: Odoo-SG
+
+  # SG para RDS
+  RDSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group para RDS PostgreSQL
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupId: !Ref OdooSecurityGroup
+      Tags:
+        - Key: Name
+          Value: RDS-SG
+
+  # ========== RDS PostgreSQL ==========
+
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Subnet group para RDS
+      SubnetIds:
+        - !Ref PrivateSubnetAZ1
+        - !Ref PrivateSubnetAZ2
+      Tags:
+        - Key: Name
+          Value: db-subnet-group
+
+  RDSDatabase:
+    Type: AWS::RDS::DBInstance
+    DeletionPolicy: Snapshot
+    Properties:
+      DBInstanceIdentifier: proyecto-postgres-db
+      Engine: postgres
+      EngineVersion: "15.12"
+      DBInstanceClass: !Ref DBInstanceClass
+      AllocatedStorage: "20"
+      StorageType: gp3
+      MasterUsername: !Ref DBUsername
+      MasterUserPassword: !Ref DBPassword
+      DBName: !Ref DBName
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref RDSSecurityGroup
+      MultiAZ: true
+      BackupRetentionPeriod: 7
+      PreferredBackupWindow: "03:00-04:00"
+      PreferredMaintenanceWindow: "mon:04:00-mon:05:00"
+      EnableCloudwatchLogsExports:
+        - postgresql
+      Tags:
+        - Key: Name
+          Value: OdooDatabase
+
+  # ========== EC2 Odoo ==========
+
+  OdooInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Sub "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}"
+      InstanceType: !Ref OdooInstanceType
+      SubnetId: !Ref PublicSubnetAZ1
+      SecurityGroupIds:
+        - !Ref OdooSecurityGroup
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -e
+          exec > >(tee /var/log/user-data.log)
+          exec 2>&1
+
+          # Actualizar sistema
+          yum update -y
+          yum install -y git python3-pip python3-devel postgresql-devel gcc
+
+          # Instalar PostgreSQL client
+          amazon-linux-extras install -y postgresql13
+
+          # Instalar Odoo
+          useradd -m -d /opt/odoo -s /bin/bash odoo || true
+          cd /opt/odoo
+
+          # Clonar Odoo
+          git clone https://github.com/odoo/odoo.git --depth 1 --branch 15.0 /opt/odoo/odoo-server
+
+          # Instalar dependencias de Odoo
+          pip3 install -r /opt/odoo/odoo-server/requirements.txt
+          pip3 install psycopg2-binary
+
+          # Crear configuración de Odoo
+          mkdir -p /etc/odoo
+          cat > /etc/odoo/odoo.conf <<'EOL'
+          [options]
+          admin_passwd = admin
+          db_host = ${RDSDatabase.Endpoint.Address}
+          db_port = 5432
+          db_user = ${DBUsername}
+          db_password = ${DBPassword}
+          db_name = ${DBName}
+          addons_path = /opt/odoo/odoo-server/addons,/opt/odoo/custom-addons
+          data_dir = /opt/odoo/data
+          logfile = /var/log/odoo/odoo.log
+          log_level = info
+          workers = 4
+          EOL
+
+          # Crear directorios necesarios
+          mkdir -p /opt/odoo/custom-addons
+          mkdir -p /opt/odoo/data
+          mkdir -p /var/log/odoo
+          chown -R odoo:odoo /opt/odoo
+          chown -R odoo:odoo /var/log/odoo
+          chmod 755 /var/log/odoo
+
+          # Crear servicio systemd
+          cat > /etc/systemd/system/odoo.service <<'EOL'
+          [Unit]
+          Description=Odoo
+          After=network.target
+
+          [Service]
+          Type=simple
+          User=odoo
+          ExecStart=/opt/odoo/odoo-server/odoo-bin -c /etc/odoo/odoo.conf
+          Restart=on-failure
+          RestartSec=10
+          StandardOutput=journal
+          StandardError=journal
+
+          [Install]
+          WantedBy=multi-user.target
+          EOL
+
+          # Iniciar servicio Odoo
+          systemctl daemon-reload
+          systemctl enable odoo.service
+          systemctl start odoo.service
+
+          # Esperar a que Odoo esté listo y crear base de datos
+          sleep 30
+
+      Tags:
+        - Key: Name
+          Value: Odoo-Instance
+
+  # Instance role/profile removed as per request; EC2 instance will not assume an IAM role
+
+  # todas las secciones de Spring Boot eliminadas
+
+Outputs:
+  VPCId:
+    Description: ID de la VPC
+    Value: !Ref VPC
+    Export:
+      Name: !Sub "${AWS::StackName}-VPC"
+
+  OdooURL:
+    Description: URL para acceder a Odoo
+    Value: !Sub "http://${OdooInstance.PublicIp}"
+    Export:
+      Name: !Sub "${AWS::StackName}-OdooURL"
+
+  OdooPublicIP:
+    Description: IP pública de la instancia Odoo
+    Value: !Ref OdooInstance
+    Export:
+      Name: !Sub "${AWS::StackName}-OdooPublicIP"
+
+  OdooSSHCommand:
+    Description: Comando SSH para acceder a Odoo e instalar módulos
+    Value: !Sub "ssh -i /path/to/key.pem ec2-user@${OdooInstance.PublicIp}"
+    Export:
+      Name: !Sub "${AWS::StackName}-OdooSSH"
+
+  OdooCustomAddonsPath:
+    Description: Ruta SSH para instalar módulos en Odoo
+    Value: !Sub "ssh -i /path/to/key.pem ec2-user@${OdooInstance.PublicIp}:/opt/odoo/custom-addons"
+    Export:
+      Name: !Sub "${AWS::StackName}-OdooModulesPath"
+
+  RDSEndpoint:
+    Description: Endpoint de la base de datos RDS
+    Value: !GetAtt RDSDatabase.Endpoint.Address
+    Export:
+      Name: !Sub "${AWS::StackName}-RDS-Endpoint"
+
+  RDSPort:
+    Description: Puerto de RDS
+    Value: !GetAtt RDSDatabase.Endpoint.Port
+    Export:
+      Name: !Sub "${AWS::StackName}-RDS-Port"
