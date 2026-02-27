@@ -513,4 +513,14 @@ I finalmente iniciremos odoo y crearemos un servicio para que se vuelva a enchuf
 
 Foto de odoo funcionando en aws
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Creacion con docker
+
+{% @github-files/github-code-block url="https://github.com/PROJ-GuillFerriPedro/Aplicaion-odoo-empleados/blob/main/docker-compose.yml" %}
+
+Con docker se van a crear 3 cosas:
+
+1. Una insctancia de odoo
+2. Una base de datos de postgresql 15
+3.
