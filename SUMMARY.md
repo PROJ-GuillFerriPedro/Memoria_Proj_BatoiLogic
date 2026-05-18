@@ -45,12 +45,12 @@
       type: builtin:openapi
       props:
         models: true
-        downloadLink: false
+        downloadLink: true
       dependencies:
         spec:
           ref:
             kind: openapi
-            spec: proyecto-dam-api
+            spec: BatoiLogicApi
       ```
 * [3.2 Aplicación 2: App Repartidores](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/README.md)
   * [Diseño](3.-aplicaciones/3.2-aplicacion-2-app-repartidores/diseno.md)
