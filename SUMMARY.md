@@ -14,9 +14,6 @@
   * [Identificación de Riesgos laborales](1.-introduccion/planificacion-laboral/identificacion-de-riesgos-laborales.md)
   * [Identificación de incidentes de seguridad en sistemas informáticos](1.-introduccion/planificacion-laboral/identificacion-de-incidentes-de-seguridad-en-sistemas-informaticos.md)
   * [Asingacion de roles](1.-introduccion/planificacion-laboral/asingacion-de-roles.md)
-  * [Forma Juridica](1.-introduccion/planificacion-laboral/forma-juridica/README.md)
-    * [Obligaciones Fiscales y Administrativas](1.-introduccion/planificacion-laboral/forma-juridica/obligaciones-fiscales-y-administrativas.md)
-    * [Plan de accion para la puesta en marcha](1.-introduccion/planificacion-laboral/forma-juridica/plan-de-accion-para-la-puesta-en-marcha.md)
 * [Plan de digitalizacion](1.-introduccion/plan-de-digitalizacion/README.md)
   * [Concepto](1.-introduccion/plan-de-digitalizacion/concepto.md)
   * [Impacto en los entornos IT y OT](1.-introduccion/plan-de-digitalizacion/impacto-en-los-entornos-it-y-ot.md)
@@ -27,6 +24,10 @@
   * [Métricas de sostenibilidad](1.-introduccion/plan-de-sostenibilidad/metricas-de-sostenibilidad.md)
   * [Matriz ASG](1.-introduccion/plan-de-sostenibilidad/matriz-asg.md)
   * [Informe de sostenibilidad](1.-introduccion/plan-de-sostenibilidad/informe-de-sostenibilidad.md)
+* [Marco jurídico y empresarial](1.-introduccion/marco-juridico-y-empresarial/README.md)
+  * [Plan de accion para la puesta en marcha](1.-introduccion/marco-juridico-y-empresarial/plan-de-accion-para-la-puesta-en-marcha.md)
+  * [Obligaciones Fiscales y Administrativas](1.-introduccion/marco-juridico-y-empresarial/obligaciones-fiscales-y-administrativas.md)
+  * [Forma Juridica](1.-introduccion/marco-juridico-y-empresarial/forma-juridica.md)
 
 ## 2. Arquitectura del sistema
 
